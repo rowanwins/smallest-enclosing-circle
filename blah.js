@@ -1,5 +1,7 @@
 const Suite = require('benchmark').Suite
 import smallestEnclosingCircle from './src/index.js'
+import makeCircle from './src/orig.js'
+import makeCircleTweaked from './src/tweaked.js'
 const bbox = require('@turf/bbox').default
 
 const fc = {
@@ -1107,21 +1109,35 @@ const fc = {
     }
   ]
 }
-console.log(smallestEnclosingCircle(fc))
-// new Suite('circle test')
-//     .add('smallestCircle', () => {
-//         smallestEnclosingCircle(fc)
-//     })
-//     .add('turf bbox', () => {
-//         bbox(fc)
-//     })
-//     .on('cycle', function (event) {
-//         console.log(event.target.toString())
-//     })
-//     .on('error', function (e) {
-//         throw e.target.error
-//     })
-//     .on('complete', function () {
-//         console.log(`Fastest is ${this.filter('fastest').map('name')}`)
-//     })
-//     .run()
+const alt = fc.features.map(function (f) {
+  return {
+    x: f.geometry.coordinates[0],
+    y: f.geometry.coordinates[1]
+  }
+})
+console.log(smallestEnclosingCircle(alt))
+console.log(makeCircle(alt))
+console.log(makeCircleTweaked(alt))
+new Suite('circle test')
+    .add('smallestCircle', () => {
+        smallestEnclosingCircle(alt)
+    })
+    .add('orig smallestCircle', () => {
+        makeCircle(alt)
+    })
+    .add('tweaked smallestCircle', () => {
+        makeCircleTweaked(alt)
+    })
+    .add('turf bbox', () => {
+        bbox(fc)
+    })
+    .on('cycle', function (event) {
+        console.log(event.target.toString())
+    })
+    .on('error', function (e) {
+        throw e.target.error
+    })
+    .on('complete', function () {
+        console.log(`Fastest is ${this.filter('fastest').map('name')}`)
+    })
+    .run()
