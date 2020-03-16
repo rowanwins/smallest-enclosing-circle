@@ -28,4 +28,5 @@ This library was based on a java implementation of Welzl's algorithm by [Bastian
 
 ## Further reading
 [Wikipedia](https://en.wikipedia.org/wiki/Smallest-circle_problem)
+
 [Original Paper](https://link.springer.com/chapter/10.1007/BFb0038202)
