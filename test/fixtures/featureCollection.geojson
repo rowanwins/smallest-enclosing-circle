@@ -1,8 +1,4 @@
-const Suite = require('benchmark').Suite
-import smallestEnclosingCircle from './src/index.js'
-const bbox = require('@turf/bbox').default
-
-const fc = {
+{
   "type": "FeatureCollection",
   "features": [
     {
@@ -1107,21 +1103,3 @@ const fc = {
     }
   ]
 }
-console.log(smallestEnclosingCircle(fc))
-// new Suite('circle test')
-//     .add('smallestCircle', () => {
-//         smallestEnclosingCircle(fc)
-//     })
-//     .add('turf bbox', () => {
-//         bbox(fc)
-//     })
-//     .on('cycle', function (event) {
-//         console.log(event.target.toString())
-//     })
-//     .on('error', function (e) {
-//         throw e.target.error
-//     })
-//     .on('complete', function () {
-//         console.log(`Fastest is ${this.filter('fastest').map('name')}`)
-//     })
-//     .run()
