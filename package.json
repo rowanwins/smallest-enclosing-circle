@@ -1,0 +1,44 @@
+{
+  "name": "smallest-enclosing-circle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@turf/bbox": "^6.0.1",
+    "ava": "^3.5.0",
+    "benchmark": "^2.1.4",
+    "eslint": "^6.8.0",
+    "eslint-config-mourner": "^3.0.0",
+    "esm": "^3.2.25",
+    "load-json-file": "^6.2.0",
+    "rollup": "^2.0.6",
+    "rollup-plugin-terser": "^5.3.0"
+  },
+  "scripts": {
+    "bench": "npm run build && node -r esm test/benchmark.js",
+    "build": "rollup -c",
+    "test": "ava --verbose"
+  },
+  "ava": {
+    "files": [
+      "test/test.js"
+    ],
+    "require": [
+      "esm"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rowanwins/smallest-enclosing-circle.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rowanwins/smallest-enclosing-circle/issues"
+  },
+  "homepage": "https://github.com/rowanwins/smallest-enclosing-circle#readme"
+}
