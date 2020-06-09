@@ -1,8 +1,11 @@
 {
   "name": "smallest-enclosing-circle",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
+  "version": "1.0.1",
+  "description": "An implementation of Welzl's algorithm for calculating the smallest enclosing circle of a set of points",
+  "main": "src/main.js",
+  "module": "dist/smallestEnclosingCircle.esm.js",
+  "unpkg": "dist/smallestEnclosingCircle.min.js",
+  "jsdelivr": "dist/smallestEnclosingCircle.min.js",
   "directories": {
     "test": "test"
   },

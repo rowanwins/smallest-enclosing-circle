@@ -1,6 +1,6 @@
 export default function wetzls (points) {
     // clone and then shuffle the points
-    const clonedPoints = points.slice();
+    const clonedPoints = points.slice()
     shuffle(clonedPoints)
     return mec(clonedPoints, points.length, [], 0)
 }
@@ -8,12 +8,12 @@ export default function wetzls (points) {
 function shuffle(a) {
     let j, x, i
     for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = a[i];
-        a[i] = a[j];
-        a[j] = x;
+        j = Math.floor(Math.random() * (i + 1))
+        x = a[i]
+        a[i] = a[j]
+        a[j] = x
     }
-    return a;
+    return a
 }
 
 function mec(points, n, boundary, b) {
@@ -68,5 +68,5 @@ function calcCircle2(p1, p2) {
 }
 
 function isInCircle (p, c) {
-    return ((c.x - p.x) * (c.x - p.x) + (c.y - p.y) * (c.y - p.y) <= c.r * c.r);
+    return ((c.x - p.x) * (c.x - p.x) + (c.y - p.y) * (c.y - p.y) <= c.r * c.r)
 }

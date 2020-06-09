@@ -5,7 +5,7 @@
   },
   "rules": {
     "space-before-function-paren": 0,
-    "semi": 0,
+    "semi": [2, "never"],
     "prefer-arrow-callback": 0
   },
 }
